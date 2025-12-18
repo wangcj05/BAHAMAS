@@ -1,0 +1,12 @@
+[CCF]
+
+[CCF.files]
+structure= "path/to/system_diagram.csv"
+
+[CCF.generate]
+output_file_base = "cccg"
+output_type = "csv"
+final = true
+single = true
+double = true
+triple = true

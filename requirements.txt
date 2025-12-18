@@ -1,0 +1,18 @@
+toml==0.10.2
+streamlit==1.35.0
+numpy >= 1.24
+pandas==2.3.0
+streamlit-aggrid==1.1.5
+streamlit-extras
+scipy
+openpyxl
+pytest
+plotly
+kaleido
+matplotlib
+streamlit
+streamlit-aggrid
+streamlit-option-menu
+jsonpointer
+jsonschema
+pathlib
