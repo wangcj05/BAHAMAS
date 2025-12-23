@@ -2,6 +2,7 @@
 
 import os
 import numpy as np
+import pytest
 
 from bahamas.sdlc_stage_hep_calculation import sdlc_stage_hep_calculation
 from bahamas.human_error_mode_distribution import get_hemd_from_spreadsheet
@@ -76,15 +77,39 @@ def test_uca_defect_correlation():
             assert abs(dist_dict[uca][odc].mean() - data[i*len(ODC_types)*2+j*2]) < 1.E-8
             assert abs(dist_dict[uca][odc].std() - data[i*len(ODC_types)*2+j*2+1]) < 1.E-8
 
+
 def test_BNN():
-    uca_mean = [7.154187342983309e-06, 1.3478917428646428e-05, 4.902251562039053e-06, 4.34464021192543e-06]
-    uca_sigma = [3.155548430508983e-06, 5.5923036374815045e-06, 2.4813382880915815e-06, 1.920421171162386e-06]
+    uca_mean = [
+        7.154187342983309e-06,
+        1.3478917428646428e-05,
+        4.902251562039053e-06,
+        4.34464021192543e-06,
+    ]
+    uca_sigma = [
+        3.155548430508983e-06,
+        5.5923036374815045e-06,
+        2.4813382880915815e-06,
+        1.920421171162386e-06,
+    ]
+
     software_BBN = BBN(defect_data, task_data, num_samples=1000)
     software_BBN.calculate()
-    total_failure_mean, total_failure_sigma, _ = software_BBN.get_total_failure_probability()
-    assert total_failure_mean == 2.9879996545594217e-05
-    assert total_failure_sigma == 1.240158963980545e-05
+    total_failure_mean, total_failure_sigma, _ = (
+        software_BBN.get_total_failure_probability()
+    )
+
+    # Tolerances suitable for MC / floating-point noise
+    rel_tol = 1e-6
+    abs_tol = 1e-10
+
+    assert total_failure_mean == pytest.approx(
+        2.9879996545594217e-05, rel=rel_tol, abs=abs_tol
+    )
+    assert total_failure_sigma == pytest.approx(
+        1.240158963980545e-05, rel=rel_tol, abs=abs_tol
+    )
+
     for i, uca in enumerate(UCA_types):
         mean, sigma, _ = software_BBN.get_uca(uca)
-        assert mean == uca_mean[i]
-        assert sigma == uca_sigma[i]
+        assert mean == pytest.approx(uca_mean[i], rel=rel_tol, abs=abs_tol)
+        assert sigma == pytest.approx(uca_sigma[i], rel=rel_tol, abs=abs_tol)
