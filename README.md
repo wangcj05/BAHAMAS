@@ -52,7 +52,14 @@ The tests can be run with:
 pytest
 ```
 
-## Example: Software Failure Probability Evaluation
+## Software Failure Probability Evaluation via Web App
+
+```bash
+cd app
+streamlit run app.py
+```
+
+## Software Failure Probability Evaluation via CLI
 
 ### Run
 
