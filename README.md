@@ -1,6 +1,9 @@
 # BAHAMAS
 Bayesian and Human Reliability Analysis-Aided Method for the Reliability Analysis of Software (BAHAMAS)
 
+## Webpage
+https://idaholab.github.io/BAHAMAS/ 
+
 ## Installation
 
 Install required libraries:
@@ -10,7 +13,6 @@ Install required libraries:
   conda activate bahamas_libs
   pip install toml streamlit==1.35 streamlit-aggrid==1.1.5 numpy>=1.24 pandas==2.3 scipy openpyxl pytest plotly kaleido matplotlib streamlit-option-menu jsonpointer streamlit_extras
 ```
-
 
 This can be installed with pip (perferably in a venv):
 
@@ -35,18 +37,3 @@ The tests can be run with:
 ```bash
 pytest
 ```
-
-from the BAHAMAS directory.
-
-## How to build html?
-
-```bash
-  pip install sphinx sphinx-rtd-theme nbsphinx sphinx-copybutton sphinxcontrib-bibtex sphinx-autoapi
-  conda install pandoc
-  cd docs
-  make html
-  cd _build/html
-  python3 -m http.server
-```
-
-open your browser to: http://localhost:8000
