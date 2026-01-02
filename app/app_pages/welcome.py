@@ -31,9 +31,11 @@ def display_main_content():
         This app allows you to perform the following analyses.
 
         **Features:**
-        - **Preliminary Assessment**: Software reliability assessment based on software development life cycle survey.
-        - **Comprehensive  Assessment**: Software reliability assessment based on Bayesian belief network analysis of software development life cycle.
-        - **Common Cause Analysis**: Software common cause analysis including common cause component group generation and evaluation.
+        - **Preliminary Assessment**: which enables efficient estimation of software failure probability using stage-level evaluations of SDLC activities to support early design decisions.
+        - **Comprehensive  Assessment**: which provides more detailed and refined failure probability estimates based on in-depth evaluations of development activities.
+        - **Common Cause Analysis**: which identifies potential software-related CCFs through the determination of common cause component groups (CCCGs) based on software-specific coupling factors
+        - **Software quality assessment survey**: offering a structured, survey-based approach to assess software reliability attributes;
+        - **CCCG evaluation**: which assesses the vulnerability of each CCCG to CCF using both qualitative and quantitative measures.
 
         **Choose a page from the sidebar to begin!**
         """
